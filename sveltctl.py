@@ -1,13 +1,10 @@
 import click
 import node
 import subprocess
+import pytailwindcss
 
 
-subprocess.run(['npm', 'install', 'sveltekit'])
-sveltekit = node.require('sveltekit')
 
-subprocess.run(['npm','install','tailwindcss'])
-tailwindcss = node.require('tailwindcss')
 
 
 
@@ -22,13 +19,13 @@ def hello():
 
 
 @cli.command()
-@cli.argument("config")
-@cli.argument("output_file")
-@cli.option("--style",help="Additional styles to be included in the css file")
+@click.argument("config")
+@click.argument("output_file")
+@click.option("--style",help="Additional styles to be included in the css file")
 def tailbuild(config,output_file,style):
     with open(config, 'r') as f:
         config = f.read()
-    css = tailwindcss.build(config,style=style)
+    css = pytailwindcss.build(config,style=style)
     with open(output_file, 'w') as f:
         f.write(css)
 
