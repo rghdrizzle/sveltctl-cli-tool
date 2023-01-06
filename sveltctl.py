@@ -15,13 +15,15 @@ def cli():
 def hello():
     click.echo("helllloooo")
 
+
 @cli.command()
 @cli.argument("config")
 @cli.argument("output_file")
-def tailbuild(config,output_file):
+@cli.option("--style",help="Additional styles to be included in the css file")
+def tailbuild(config,output_file,style):
     with open(config, 'r') as f:
         config = f.read()
-    css = tailwindcss.build(config)
+    css = tailwindcss.build(config,style=style)
     with open(output_file, 'w') as f:
         f.write(css)
 
