@@ -1,10 +1,15 @@
 import click
 import node
+import subprocess
 
-node.run_npm_install(['tailwindcss'])
-tailwindcss = node.require('tailwindcss')
-node.run_npm_install(['sveltekit'])
+
+subprocess.run(['npm', 'install', 'sveltekit'])
 sveltekit = node.require('sveltekit')
+
+subprocess.run(['npm','install','tailwindcss'])
+tailwindcss = node.require('tailwindcss')
+
+
 
 
 @click.group()
