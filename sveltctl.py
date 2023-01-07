@@ -1,18 +1,10 @@
 import click
-import node
-import subprocess
 import pytailwindcss
 import importlib
 import sys
 sys.path.append('node_modules')
 
 sveltekit = importlib.import_module('svelte')
-
-
-
-
-
-
 
 
 @click.group()
