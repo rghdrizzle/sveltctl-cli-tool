@@ -1,5 +1,5 @@
 # sveltctl-cli-tool
-
+pre-requisite: Do install svelte using npm and do it in inside the dir of the cli
 <h2>usage</h2>
 $ pip install --editable .
 
