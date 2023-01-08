@@ -2,6 +2,7 @@ import click
 import pytailwindcss
 import importlib
 import sys
+import trpc
 sys.path.append('node_modules')
 
 sveltekit = importlib.import_module('svelte')
