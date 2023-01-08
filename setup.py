@@ -6,6 +6,8 @@ setup(
     packages=find_packages(),
     install_requires=[
         'click'
+        'pytailwindcss'
+        'trpc'
     ],
     entry_points='''
     [console_scripts]
