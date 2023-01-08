@@ -45,5 +45,23 @@ def run_dev(appdir): #for starting a development server with hot reloading enabl
         'rootDir': appdir,
         'hotReloading': True,
     })
+
+
+@cli.command()
+@click.option('--app-path', required=True, type=click.Path(exists=True),help="Enter the app path")
+@click.option('--output-dir', required=True, type=click.Path(),help="enter the output dir that you want to store the output in")
+def build(app_path,output_path):# for building the application for production 
+    sveltekit.build(app_path, {
+        'output': output_path,
+        'minify': True
+    })
+
+@cli.command()
+@click.option("--app-path")
+def format(app_path):
+    sveltekit.__format__(app_path)
+    
+
+
 if __name__ =="__main__":
     cli()
